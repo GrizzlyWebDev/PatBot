@@ -1,0 +1,105 @@
+[
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "_owner",
+                "type": "address"
+            }
+        ],
+        "name": "balanceOf",
+        "outputs": [
+            {
+                "name": "balance",
+                "type": "uint256"
+            }
+        ],
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "decimals",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "totalSupply",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "token0",
+                "type": "address"
+            },
+            {
+                "name": "token1",
+                "type": "address"
+            }
+        ],
+        "name": "getPair",
+        "outputs": [
+            {
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getReserves",
+        "outputs": [
+            {
+                "name": "reserve0",
+                "type": "uint112"
+            },
+            {
+                "name": "reserve1",
+                "type": "uint112"
+            }
+        ],
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "token1",
+        "outputs": [
+            {
+                "name": "address",
+                "type": "address"
+            }
+        ],
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "token0",
+        "outputs": [
+            {
+                "name": "address",
+                "type": "address"
+            }
+        ],
+        "type": "function"
+    }
+
+]
