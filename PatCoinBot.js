@@ -61,7 +61,7 @@ client.on('ready', () => {
  		await interaction.reply({ embeds: [addressEmbed], components: [row]});
  	} else if (commandName === "admin" && interaction.channelId === "900919063692333106") {
 		 
-		members = interaction.guild.roles.cache.find(role => role.name === 'Admin').members.map(m=>m.user.tag);
+		members = Client.guild.roles.cache.find(role => role.name === 'Admin').members.map(m=>m.user.tag);
 
 			 const adminsEmbed = new MessageEmbed()
 			 .setColor('0x46496')
