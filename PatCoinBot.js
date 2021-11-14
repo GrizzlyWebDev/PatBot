@@ -60,7 +60,7 @@ client.on('ready', () => {
 			.setDescription('0xE265467D89ed55c2B5fE3cACDac85A7d13ADACb1');
  		await interaction.reply({ embeds: [addressEmbed], components: [row]});
  	} else if (commandName === "admin" && interaction.channelId === "900919063692333106") {
-		Client.guild.roles.fetch()
+		interaction.guild.roles.fetch()
 		.then(roles => console.log(`There are ${roles.size} roles.`))
 		.catch(console.error);
 		// members = Client.guild.roles.cache.find(role => role.name === 'Admin').members.map(m=>m.user.tag);
