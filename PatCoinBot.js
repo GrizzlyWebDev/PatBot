@@ -60,14 +60,16 @@ client.on('ready', () => {
 			.setDescription('0xE265467D89ed55c2B5fE3cACDac85A7d13ADACb1');
  		await interaction.reply({ embeds: [addressEmbed], components: [row]});
  	} else if (commandName === "admin" && interaction.channelId === "900919063692333106") {
-		 
-		members = Client.guild.roles.cache.find(role => role.name === 'Admin').members.map(m=>m.user.tag);
+		Client.guild.roles.fetch()
+		.then(roles => console.log(`There are ${roles.size} roles.`))
+		.catch(console.error);
+		// members = Client.guild.roles.cache.find(role => role.name === 'Admin').members.map(m=>m.user.tag);
 
-			 const adminsEmbed = new MessageEmbed()
-			 .setColor('0x46496')
-			 .setTitle('List of Admins')
-			 .setDescription(members.join("\n"));
-			await interaction.reply({embeds: [adminsEmbed]});
+		// 	 const adminsEmbed = new MessageEmbed()
+		// 	 .setColor('0x46496')
+		// 	 .setTitle('List of Admins')
+		// 	 .setDescription(members.join("\n"));
+		// 	await interaction.reply({embeds: [adminsEmbed]});
 	 } else if (commandName === "price" && interaction.channelId === "900919063692333106") {
 			let res = await fetchData();
 			const priceEmbed = new MessageEmbed()
