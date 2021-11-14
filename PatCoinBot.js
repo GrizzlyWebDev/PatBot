@@ -17,7 +17,7 @@ client.on('ready', () => {
 
  	const { commandName } = interaction;
 
- 	if (commandName === 'help' && interaction.channelId === "900919063692333106") {
+ 	if (commandName === 'commands' && interaction.channelId === "900919063692333106") {
 		const helpEmbed = new MessageEmbed()
     
         // Set the title of the field
@@ -25,7 +25,7 @@ client.on('ready', () => {
         // Set the color of the embed
         .setColor(0x46496)
         // Set the main content of the embed
-        .setDescription( "\r\n" + "\r\n" + "**/help** - List of commands" + "\r\n" + "**/admin** - List of Admins" + "\r\n" + "**/price** (Only in Price-Check Channel) - Current price information of PatCoin" + "\r\n" + "**/site** - PatCoin website" + "\r\n" + "**/buy** - where to buy PatCoin" + "\r\n" +  "**/address** - Official PatCoin Contract Address" + "\r\n" +"**/tracker** - PatCoin Tracker");
+        .setDescription( "\r\n" + "\r\n" + "**/commands** - List of commands" + "\r\n" + "**/admin** - List of Admins" + "\r\n" + "**/price** (Only in Price-Check Channel) - Current price information of PatCoin" + "\r\n" + "**/site** - PatCoin website" + "\r\n" + "**/buy** - where to buy PatCoin" + "\r\n" +  "**/address** - Official PatCoin Contract Address" + "\r\n" +"**/tracker** - PatCoin Tracker");
       // Send the embed to the same channel as the message
       await interaction.reply({embeds: [helpEmbed]});
  	} else if (commandName === 'site' && interaction.channelId === "900919063692333106") {
