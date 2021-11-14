@@ -4,6 +4,7 @@
   "description": "pricebot for discord",
   "main": "PatCoinBot.js",
   "scripts": {
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
