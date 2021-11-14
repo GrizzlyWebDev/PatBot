@@ -1,6 +1,6 @@
 
 const { Client, Intents, MessageActionRow, MessageButton, MessageEmbed} = require('discord.js');
-// const { token } = require('./config.json');
+const { token } = require('./config.json');
 const { fetchData } = require('./price');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, 'GUILD_MEMBERS', 'GUILD_INVITES', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS'] });
@@ -81,7 +81,7 @@ client.on('ready', () => {
 
 
 // Login to Discord with your client's token
-client.login(process.env.token);
+client.login(token);
 
 
 // client.on('message', price);
