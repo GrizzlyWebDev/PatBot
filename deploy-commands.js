@@ -4,7 +4,7 @@ const { Routes } = require('discord-api-types/v9');
 const { clientId, guildId, token } = require('./config.json');
 
 const commands = [
-	new SlashCommandBuilder().setName('help').setDescription('Lists all bot commands!'),
+	new SlashCommandBuilder().setName('commands').setDescription('Lists all bot commands!'),
 	new SlashCommandBuilder().setName('site').setDescription('Displays the PatCoin Website!'),
 	new SlashCommandBuilder().setName('tracker').setDescription('Displays PatBoard Tracker Link'),
 	new SlashCommandBuilder().setName('buy').setDescription('Displays link to PancakeSwap'),
