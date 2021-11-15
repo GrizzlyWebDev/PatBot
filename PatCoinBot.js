@@ -17,7 +17,7 @@ let interval;
 
  	const { commandName } = interaction;
 
- 	if (commandName === 'commands' && interaction.channelId === "909541019127779369") {
+ 	if (commandName === 'commands') {
 		const helpEmbed = new MessageEmbed()
     
         // Set the title of the field
@@ -25,10 +25,10 @@ let interval;
         // Set the color of the embed
         .setColor(0x46496)
         // Set the main content of the embed
-        .setDescription( "\r\n" + "\r\n" + "**/commands** - List of commands" + "\r\n" + "**/admin** - List of Admins" + "\r\n" + "**/price** (Only in Price-Check Channel) - Current price information of PatCoin" + "\r\n" + "**/site** - PatCoin website" + "\r\n" + "**/buy** - where to buy PatCoin" + "\r\n" +  "**/address** - Official PatCoin Contract Address" + "\r\n" +"**/tracker** - PatCoin Tracker");
+        .setDescription( "\r\n" + "\r\n" + "**/commands** - List of commands" + "\r\n" + "**/admin** - List of Admins" + "\r\n" + "**/price** (Only in Price-Bot Channel) - Current price information of PatCoin" + "\r\n" + "**/site** - PatCoin website" + "\r\n" + "**/buy** - where to buy PatCoin" + "\r\n" +  "**/address** - Official PatCoin Contract Address" + "\r\n" +"**/tracker** - PatCoin Tracker");
       // Send the embed to the same channel as the message
       await interaction.reply({embeds: [helpEmbed]});
- 	} else if (commandName === 'site' && interaction.channelId === "909541019127779369") {
+ 	} else if (commandName === 'site') {
 		const row = new MessageActionRow()
 		.addComponents(
 			new MessageButton()
@@ -37,7 +37,7 @@ let interval;
 				.setStyle('LINK'),
 		);
  		await interaction.reply({content: 'This is the Official PatCoin Website' , components: [row]});
- 	} else if (commandName === 'tracker' && interaction.channelId === "909541019127779369") {
+ 	} else if (commandName === 'tracker') {
 		const row = new MessageActionRow()
 		.addComponents(
 			new MessageButton()
@@ -46,7 +46,7 @@ let interval;
 				.setStyle('LINK'),
 		);
  		await interaction.reply({content: 'This is the PatBoard Tracker' , components: [row]});
- 	} else if (commandName === 'buy' || commandName === 'address' && interaction.channelId === "909541019127779369") {
+ 	} else if (commandName === 'buy' || commandName === 'address') {
 		const row = new MessageActionRow()
 		.addComponents(
 			new MessageButton()
@@ -59,7 +59,7 @@ let interval;
 			.setTitle('PatCoin Contract Address')
 			.setDescription('0xE265467D89ed55c2B5fE3cACDac85A7d13ADACb1');
  		await interaction.reply({ embeds: [addressEmbed], components: [row]});
- 	} else if (commandName === "admin" && interaction.channelId === "909541019127779369") {
+ 	} else if (commandName === "admin") {
 		
 		 members = interaction.guild.roles.cache.find(role => role.name === 'Admin').members.map(m=>m.user.tag);
 
@@ -68,6 +68,12 @@ let interval;
 			 .setTitle('Admins Currently Active')
 			 .setDescription(members.join("\n"));
 			await interaction.reply({embeds: [adminsEmbed]});
+	 } else if (commandName === "price" && interaction.channelId != "909541019127779369") {
+		const priceErrorEmbed = new MessageEmbed()
+		.setColor('0x46496')
+		.setTitle('Invalid Channel For Price Command')
+		.setDescription('Price Command Is Only Available In price-bot Channel');
+	   interaction.reply({embeds: [priceErrorEmbed]});
 	 } else if (commandName === "price" && interaction.channelId === "909541019127779369") {
 		let res = await fetchData();
 		const priceEmbed = new MessageEmbed()
