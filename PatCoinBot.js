@@ -9,7 +9,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, 'GUILD_MEMBERS', 'GU
 client.on('ready', () => {
         console.log(`Logged in as ${client.user.tag}!`);
       });
-
+let interval;
        client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()){
                  console.log('not a command')
@@ -69,14 +69,28 @@ client.on('ready', () => {
 			 .setDescription(members.join("\n"));
 			await interaction.reply({embeds: [adminsEmbed]});
 	 } else if (commandName === "price" && interaction.channelId === "909541019127779369") {
-			let res = await fetchData();
-			const priceEmbed = new MessageEmbed()
-			 .setColor('0x46496')
-			 .setTitle('PatCoin Price Information')
-			 .setURL('https://poocoin.app/tokens/0xe265467d89ed55c2b5fe3cacdac85a7d13adacb1')
-			 .setDescription('Price: ' + res.current + '\r\n' + 'Market Cap: ' + res.cap);
-			await interaction.reply({embeds: [priceEmbed]});
-	 }
+		let res = await fetchData();
+		const priceEmbed = new MessageEmbed()
+		 .setColor('0x46496')
+		 .setTitle('PatCoin Price Information')
+		 .setURL('https://poocoin.app/tokens/0xe265467d89ed55c2b5fe3cacdac85a7d13adacb1')
+		 .setDescription('Price: ' + res.current + '\r\n' + 'Market Cap: ' + res.cap);
+		interaction.reply({embeds: [priceEmbed]});
+		clearInterval(interval);
+		interval = setInterval(price, 1800000);
+	 } 
+	 async function price() {
+		let res = await fetchData();
+		const priceEmbed = new MessageEmbed()
+		 .setColor('0x46496')
+		 .setTitle('PatCoin Price Information')
+		 .setURL('https://poocoin.app/tokens/0xe265467d89ed55c2b5fe3cacdac85a7d13adacb1')
+		 .setDescription('Price: ' + res.current + '\r\n' + 'Market Cap: ' + res.cap);
+		 await interaction.channel.messages.fetch({limit:2}).then(messages => {
+			interaction.channel.bulkDelete(messages);
+		}); 
+		interaction.channel.send({embeds: [priceEmbed]});
+	}
  });
 
 
