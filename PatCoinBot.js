@@ -92,9 +92,9 @@ let interval;
 		 .setTitle('PatCoin Price Information')
 		 .setURL('https://poocoin.app/tokens/0xe265467d89ed55c2b5fe3cacdac85a7d13adacb1')
 		 .setDescription('Price: ' + res.current + '\r\n' + 'Market Cap: ' + res.cap);
-		 await interaction.channel.messages.fetch({limit:2}).then(messages => {
-			interaction.channel.bulkDelete(messages);
-		}); 
+		//  await interaction.channel.messages.fetch({limit:2}).then(messages => {
+		// 	interaction.channel.bulkDelete(messages);
+		// }); 
 		interaction.channel.send({embeds: [priceEmbed]});
 	}
  });
